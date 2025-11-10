@@ -41,19 +41,19 @@ Route::get('/checkout', [FrontendController::class, 'checkout'])->name('checkout
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::get('/failed', [FrontendController::class, 'failed'])->name('failed');
 Route::get('/faq', [FrontendController::class, 'faq'])->name('faq');
-Route::get('/auth/forgot-password', [FrontendController::class, 'forgotPassword'])->name('forgot.password');
-Route::get('/auth/login', [FrontendController::class, 'login'])->name('login');
+Route::get('/customer/forgot-password', [FrontendController::class, 'forgotPassword'])->name('forgot.password');
+Route::get('/customer/login', [FrontendController::class, 'login'])->name('customer.login');
 Route::get('/privacy-policy', [FrontendController::class, 'privacyPolicy'])->name('privacy.policy');
 Route::get('/terms-conditions', [FrontendController::class, 'termsAndConditions'])->name('terms.conditions');
 Route::get('/product', [FrontendController::class, 'products'])->name('product');
-Route::get('/auth/register', [FrontendController::class, 'register'])->name('register');
-Route::get('/auth/reset-password', [FrontendController::class, 'resetPassword'])->name('reset.password');
-Route::get('/auth/search-results', [FrontendController::class, 'searchResults'])->name('search.results');
+Route::get('/customer/register', [FrontendController::class, 'register'])->name('customer.register');
+Route::get('/customer/reset-password', [FrontendController::class, 'resetPassword'])->name('reset.password');
+Route::get('/customer/search-results', [FrontendController::class, 'searchResults'])->name('search.results');
 Route::get('/success', [FrontendController::class, 'success'])->name('success');
-Route::get('/auth/support/tickets', [FrontendController::class, 'supportTickets'])->name('support.tickets');
-Route::get('/auth/support/ticket/{id}', [FrontendController::class, 'supportTicketView'])->name('support.ticket.view');
-Route::get('/auth/vendors', [FrontendController::class, 'vendors'])->name('vendors');
-Route::get('/auth/verify/email', [FrontendController::class, 'verifyEmail'])->name('verify.email');
+Route::get('/customer/support/tickets', [FrontendController::class, 'supportTickets'])->name('support.tickets');
+Route::get('/customer/support/ticket/{id}', [FrontendController::class, 'supportTicketView'])->name('support.ticket.view');
+Route::get('/customer/vendors', [FrontendController::class, 'vendors'])->name('vendors');
+Route::get('/customer/verify/email', [FrontendController::class, 'verifyEmail'])->name('verify.email');
 Route::get('/wishlist', [FrontendController::class, 'wishlist'])->name('wishlist');
 
 /*
@@ -61,8 +61,8 @@ Route::get('/wishlist', [FrontendController::class, 'wishlist'])->name('wishlist
 | Customer Authentication (POST actions)
 |--------------------------------------------------------------------------
 */
-Route::post('/auth/register', [CustomerAuthController::class, 'register'])->name('customer.register.submit');
-Route::post('/auth/login', [CustomerAuthController::class, 'login'])->name('customer.login.submit');
+Route::post('/customer/register', [CustomerAuthController::class, 'register'])->name('customer.register.submit');
+Route::post('/customer/login', [CustomerAuthController::class, 'login'])->name('customer.login.submit');
 
 
 /*

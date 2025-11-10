@@ -48,7 +48,7 @@
                     {{-- Replace static '3' with a dynamic cart item count --}}
                     <span class="cart-badge pulse-badge">3</span>
                 </a>
-                <a href="{{ url('auth/login') }}" class="btn btn-primary btn-sm btn-glow">Login</a>
+                <a href="{{ url('customer/login') }}" class="btn btn-primary btn-sm btn-glow">Login</a>
             </div>
         </div>
     </div>
