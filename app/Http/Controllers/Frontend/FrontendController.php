@@ -13,15 +13,15 @@ class FrontendController extends Controller
     // ------------------------------
     public function index()
     {
-        // Fetch featured products (will work after DB setup)
-       $featuredProducts = [];
+        // Fetch featured or latest products
+        $products = Product::latest()->take(8)->get(); 
 
-    return view('frontend.index', compact('featuredProducts'));
+        return view('frontend.index', compact('products'));
     }
 
     public function shop()
     {
-        // Fetch featured products (will work after DB setup)
+    
        $featuredProducts = [];
 
     return view('frontend.shop', compact('featuredProducts'));

@@ -1,10 +1,21 @@
 <?php
 
+use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\CampaignController;
+use App\Http\Controllers\Admin\CartItemController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\FeatureController;
+use App\Http\Controllers\Admin\NewsletterController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProductImageController;
+use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\WishlistController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\CustomerDashboardController;
+use App\Http\Controllers\Admin\SliderController;
 
 
 Route::get('/', function () {
@@ -73,6 +84,21 @@ Route::post('/customer/login', [CustomerAuthController::class, 'login'])->name('
 Route::middleware('auth:customer')->group(function () {
     Route::get('/customer/dashboard', [CustomerDashboardController::class, 'index'])
         ->name('customer.dashboard');
+});
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('sliders', SliderController::class);
+    Route::resource('features', FeatureController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('products', ProductController::class);
+    Route::resource('product_images', ProductImageController::class);
+    Route::resource('reviews', ReviewController::class);
+    Route::resource('wishlists', WishlistController::class);
+    Route::resource('cart_items', CartItemController::class);
+    Route::resource('banners', BannerController::class);
+    Route::resource('newsletters', NewsletterController::class);
+
+
 });
 
 

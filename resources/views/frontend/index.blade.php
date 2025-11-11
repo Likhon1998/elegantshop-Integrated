@@ -45,7 +45,7 @@
                                         <h1 class="hero-title gradient-text">Up to 50% Off</h1>
                                         <p class="hero-description">Limited time offer on selected items. Don't miss out!</p>
                                         <a href="{{ url('campaigns') }}" class="btn btn-primary btn-lg mt-3 btn-3d">
-                                            View Offers <i class="fas fa-arrow-right ms-2"></i>
+                                           Limited time offer on selected items. Don't miss out!<i class="fas fa-arrow-right ms-2"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -143,7 +143,7 @@
         </div>
     </section>
 
-    ---
+
 
     <section class="products-section py-5">
         <div class="container">
@@ -384,7 +384,7 @@
         </div>
     </section>
 
-    ---
+
 
     <section class="banner-section py-5">
         <div class="container">
@@ -416,8 +416,6 @@
             </div>
         </div>
     </section>
-
-    ---
 
     <section class="newsletter-section py-5">
         <div class="container">
