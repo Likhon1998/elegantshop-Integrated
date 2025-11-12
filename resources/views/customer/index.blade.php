@@ -190,29 +190,56 @@
     </section>
 
     {{-- 🟣 NEWSLETTER SECTION --}}
-    <section class="newsletter-section py-5">
-        <div class="container">
-            <div class="newsletter-box glass-card">
-                <div class="newsletter-glow"></div>
-                <div class="row align-items-center">
-                    <div class="col-lg-6 mb-4 mb-lg-0">
-                        <div class="newsletter-content">
-                            <i class="fas fa-envelope-open newsletter-icon"></i>
-                            <h3 class="newsletter-title">Subscribe to Our Newsletter</h3>
-                            <p class="newsletter-text">Get the latest updates on new products and exclusive offers</p>
+<section class="newsletter-section py-5">
+    <div class="container">
+        <div class="newsletter-box glass-card">
+            <div class="newsletter-glow"></div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="newsletter-content">
+                        <i class="fas fa-envelope-open newsletter-icon"></i>
+                        <h3 class="newsletter-title">Subscribe to Our Newsletter</h3>
+                        <p class="newsletter-text">Get the latest updates on new products and exclusive offers</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <form action="{{ route('newsletter.subscribe') }}" method="POST" class="newsletter-form">
+                        @csrf
+                        <div class="input-group modern-input">
+                            <input 
+                                type="email" 
+                                name="email" 
+                                class="form-control form-control-lg @error('email') is-invalid @enderror" 
+                                placeholder="Enter your email address" 
+                                value="{{ old('email') }}" {{-- Keep old input value on failed validation --}}
+                                required
+                            >
+                            <button class="btn btn-primary px-4" type="submit">Subscribe</button>
+                            
+                            {{-- ⚠️ LOCALIZED VALIDATION ERROR (Better UX) --}}
+                            @error('email')
+                                <div class="invalid-feedback d-block">{{ $message }}</div> 
+                                {{-- 'd-block' is often needed to show the feedback outside of Bootstrap's default handling --}}
+                            @enderror
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <form action="{{ route('admin.newsletters.store') }}" method="POST" class="newsletter-form">
-                            @csrf
-                            <div class="input-group modern-input">
-                                <input type="email" name="email" class="form-control" placeholder="Enter your email address" required>
-                                <button class="btn btn-primary" type="submit">Subscribe</button>
-                            </div>
-                        </form>
-                    </div>
+                    </form>
+
+                    {{-- ✅ SUCCESS MESSAGE --}}
+                    @if(session('success'))
+                        <div class="alert alert-success mt-3" role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    {{-- ❌ ERROR MESSAGE --}}
+                    @if(session('error'))
+                        <div class="alert alert-danger mt-3" role="alert">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 @endsection

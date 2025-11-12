@@ -13,15 +13,30 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->nullable()->constrained('categories')->nullOnDelete();
+
+            // Foreign keys
+            $table->foreignId('category_id')
+                ->nullable()
+                ->constrained('categories')
+                ->nullOnDelete();
+
+            $table->foreignId('brand_id')
+                ->nullable()
+                ->constrained('brands')
+                ->nullOnDelete();
+
+            // Product info
             $table->string('name');
             $table->string('slug')->unique();
             $table->text('description')->nullable();
             $table->decimal('price', 10, 2)->default(0);
             $table->decimal('discount_price', 10, 2)->nullable();
             $table->string('image')->nullable();
+
+            // Status flags
             $table->boolean('is_featured')->default(false);
             $table->boolean('status')->default(true);
+
             $table->timestamps();
         });
     }

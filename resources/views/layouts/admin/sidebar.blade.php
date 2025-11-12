@@ -31,6 +31,13 @@
                 <span>Categories</span> 
             </a>
 
+            <a href="{{ route('admin.brands.index') }}" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-purple-50 hover:text-purple-600 transition-colors {{ request()->routeIs('admin.brands.index') ? 'bg-purple-50 text-purple-600 font-medium' : '' }}">
+                <svg class="w-5 h-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Brands</span>
+            </a>
+
             <a href="{{ route('admin.products.index') }}" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-purple-50 hover:text-purple-600 transition-colors {{ request()->routeIs('admin.products.index') ? 'bg-purple-50 text-purple-600 font-medium' : '' }}">
                 <svg class="w-5 h-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V7a2 2 0 00-2-2h-4l-3-3H6a2 2 0 00-2 2v6a2 2 0 002 2h4l3 3h5a2 2 0 002-2z" />

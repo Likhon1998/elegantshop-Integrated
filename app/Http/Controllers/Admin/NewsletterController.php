@@ -23,13 +23,16 @@ class NewsletterController extends Controller
     {
         $request->validate([
             'email' => 'required|email|unique:newsletters,email',
-            'status' => 'boolean',
         ]);
 
-        Newsletter::create($request->only(['email', 'status']));
+        Newsletter::create([
+            'email' => $request->email,
+            'status' => true,
+        ]);
 
-        return redirect()->route('admin.newsletters.index')->with('success', 'Subscriber added successfully.');
+        return redirect()->back()->with('success', 'Thank you for subscribing!');
     }
+
 
     public function edit($id)
     {

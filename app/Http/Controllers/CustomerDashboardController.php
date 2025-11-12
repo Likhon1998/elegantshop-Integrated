@@ -20,7 +20,7 @@ class CustomerDashboardController extends Controller
 
     public function index()
     {
-        // ✅ Fetch data dynamically
+     
         $sliders = Slider::where('status', true)->orderBy('order', 'asc')->get();
         $features = Feature::where('status', true)->take(4)->get();
         $banners = Banner::where('status', true)->orderBy('order', 'asc')->get();
@@ -43,10 +43,10 @@ class CustomerDashboardController extends Controller
             ->take(12)
             ->get();
 
-        // ✅ Customer info (optional)
+       
         $customer = Auth::guard('customer')->user();
 
-        // ✅ Pass data to view
+       
         return view('customer.index', compact(
             'customer',
             'sliders',

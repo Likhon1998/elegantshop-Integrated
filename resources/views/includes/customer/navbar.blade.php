@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item"><a class="nav-link active" href="{{ url('/customer/dashboard') }}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ url('shop') }}">Shop</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('/customer/shop') }}">Shop</a></li>
 
                 {{-- Categories Dropdown --}}
                 <li class="nav-item dropdown">

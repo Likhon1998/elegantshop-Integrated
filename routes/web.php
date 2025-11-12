@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CampaignController;
 use App\Http\Controllers\Admin\CartItemController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -10,6 +11,8 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductImageController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\WishlistController;
+use App\Http\Controllers\Frontend\NewsletterSubscriptionController;
+use App\Http\Controllers\Frontend\ShopController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -84,6 +87,9 @@ Route::post('/customer/login', [CustomerAuthController::class, 'login'])->name('
 Route::middleware('auth:customer')->group(function () {
     Route::get('/customer/dashboard', [CustomerDashboardController::class, 'index'])
         ->name('customer.dashboard');
+    Route::get('/customer/shop', [ShopController::class, 'index'])
+        ->name('customer.shop');
+    
 });
 
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -97,10 +103,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('cart_items', CartItemController::class);
     Route::resource('banners', BannerController::class);
     Route::resource('newsletters', NewsletterController::class);
+    Route::resource('brands', BrandController::class);
+
 
 
 });
-
+Route::post('/newsletter/subscribe', [NewsletterSubscriptionController::class, 'subscribe'])->name('newsletter.subscribe');
 
 
 

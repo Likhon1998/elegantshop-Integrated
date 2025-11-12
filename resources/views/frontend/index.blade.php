@@ -417,6 +417,7 @@
         </div>
     </section>
 
+
     <section class="newsletter-section py-5">
         <div class="container">
             <div class="newsletter-box glass-card">
